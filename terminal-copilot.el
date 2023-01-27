@@ -96,7 +96,7 @@
     (if (eq exit-code 0)
         (let* ((split-output    (split-string output "\n"))
                (filtered-output (seq-filter (lambda (line)
-                                              (string-match-p "[:space:]" line))
+                                              (string-match-p "[^[:blank:]\n]" line))
                                             split-output))
                (json-str        (car (last filtered-output)))
                (parsed-output   (json-parse-string json-str
